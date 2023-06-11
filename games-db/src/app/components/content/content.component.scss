@@ -1,17 +1,24 @@
 .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 83%;
-    margin: 0 auto;
+    margin: -220px auto;
 }
 
 .filters {
-    margin: 30px 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    margin-top: 50px;
 }
 
 // ng-deep para componentes gerados
 ::ng-deep {
 
     .mat-mdc-select-panel {
-        background-color: white;
+        background-color: #0f0f0f;
     }
 
     .mdc-line-ripple--active::after {
@@ -20,37 +27,37 @@
 
     .mat-mdc-option,
     .mcd-list-item {
-        background-color: white;
+        background-color: #0f0f0f;
     }
 
     .mat-mdc-option:hover:not(.mdc-list-item--disabled),
     .mat-mdc-option:focus.mdc-list-item,
     .mat-mdc-option.mat-mdc-option-active.mdc-list-item,
     .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple):not(.mdc-list-item--disabled) {
-        background-color: gray;
+        background-color: #0f0f0f;
     }
 
     .mat-mdc-text-field-wrapper {
-        background-color: white !important;
-        color: black !important;
+        background-color: #0f0f0f !important;
+        color: white !important;
     }
 
     .mdc-floating-label,
     .mat-mdc-select-value {
-        color: black !important;
+        color: white !important;
     }
 
     .mdc-list-item__primary-text {
-        color: black !important;
+        color: white !important;
     }
 
     .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after,
     .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
-        color: black;
+        color: white;
     }
 
     .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
-        color: black;
+        color: white;
     }
 }
 
@@ -58,5 +65,5 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 20px auto;
+    margin: 0 auto;
 }

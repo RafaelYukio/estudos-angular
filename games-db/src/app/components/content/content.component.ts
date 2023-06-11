@@ -44,7 +44,7 @@ export class ContentComponent implements OnInit, OnDestroy {
     this.gameSub = this.httpService
       .getGameList(sortBy, platform, tags)
       .subscribe((response) => {
-        this.games = JSON.parse(response.contents);
+        this.games = JSON.parse(response.contents).slice(0, 30);
       });
   }
 

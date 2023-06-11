@@ -27,20 +27,24 @@ export class ContentComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    console.log('to aqui');
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
       if (params['game-search']) {
         this.searchGames(SortBy.Popularity, params['game-search']);
       } else {
         this.searchGames(SortBy.Popularity);
       }
+      // Caso não consiga acessar a API por causa do CORS
+      // if (this.games.length == 0)
+      //   this.games = games.slice(0, 20) as Array<Game>;
     });
   }
 
   searchGames(sortBy: SortBy, platform?: Platform, tags?: Array<Tag>): void {
     this.gameSub = this.httpService
       .getGameList(sortBy, platform, tags)
-      .subscribe((gameList: Array<Game>) => {
-        this.games = gameList.slice(0, 20);
+      .subscribe((response) => {
+        this.games = JSON.parse(response.contents);
       });
   }
 

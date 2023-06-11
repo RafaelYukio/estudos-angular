@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { DetailCard } from 'src/app/models/detail-card';
 import { GameDetails } from 'src/app/models/game-details';
 import { HttpService } from 'src/app/services/http.service';
@@ -9,8 +10,9 @@ import { HttpService } from 'src/app/services/http.service';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, OnDestroy {
   public gameDetails!: GameDetails;
+  private gameDetailsSub!: Subscription;
 
   public gameRating = 70;
   public detailReleaseDate!: DetailCard;
@@ -23,17 +25,15 @@ export class DetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      console.log(params);
-      this.httpService
-        .getGameById(params['gameId'])
-        .subscribe((gameDetails: GameDetails) => {
-          this.gameDetails = gameDetails;
-          console.log(this.gameDetails);
-
+    this.gameDetailsSub = this.activatedRoute.params.subscribe(
+      (params: Params) => {
+        this.httpService.getGameById(params['gameId']).subscribe((response) => {
+          this.gameDetails = JSON.parse(response.contents);
+          console.log(JSON.parse(response.contents));
           this.setDetailCards(this.gameDetails);
         });
-    });
+      }
+    );
   }
 
   setDetailCards(gameDetails: GameDetails): void {
@@ -58,5 +58,9 @@ export class DetailsComponent implements OnInit {
     else if (value > 50) return '#fffa50';
     else if (value > 30) return '#f7aa38';
     else return '#ef4655';
+  }
+
+  ngOnDestroy(): void {
+    this.gameDetailsSub.unsubscribe();
   }
 }

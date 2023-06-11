@@ -24,7 +24,7 @@ export class GameCardComponent implements OnInit {
     }
   }
 
-  openGameDetails(gameId: string): void {
+  openGameDetails(gameId: number): void {
     this.router.navigate(['details', gameId]);
   }
 }

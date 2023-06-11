@@ -1,5 +1,5 @@
-// https://angular.io/guide/build
+//https://allorigins.win/
 
 export const environment = {
-  BASE_URL: 'https://thingproxy.freeboard.io/fetch/https://www.freetogame.com/api',
+  BASE_URL: 'https://api.allorigins.win/get?url=https://www.freetogame.com/api',
 };

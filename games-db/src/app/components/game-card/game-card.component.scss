@@ -1,0 +1,62 @@
+.game {
+    width: 280px;
+    height: 460px;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #0f0f0f;
+    transition-duration: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-6px);
+    }
+
+    &-thumb-container {
+        background-color: black;
+        position: relative;
+        color: white;
+        text-align: center;
+        height: 300px;
+    }
+
+    &-thumbnail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: 0 top;
+    }
+
+    &-description {
+        color: rgb(170, 170, 170);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        height: 157px;
+    }
+
+    &-name {
+        height: 20%;
+        font-weight: 400;
+        font-size: 22px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    &-short-description {
+        height: 65%;
+    }
+
+    &-platforms {
+        height: 15%;
+        display: flex;
+        margin-right: 10px;
+        background-color: #0f0f0f;
+    }
+}

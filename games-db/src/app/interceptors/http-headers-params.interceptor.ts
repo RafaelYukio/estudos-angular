@@ -9,8 +9,6 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class HttpHeadersParamsInterceptor implements HttpInterceptor {
-  constructor() {}
-
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler

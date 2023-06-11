@@ -1,0 +1,24 @@
+.detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 180px;
+    border-radius: 14px;
+    background-color: black;
+
+    &-value {
+        height: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+    }
+
+    &-label {
+        color: gray;
+    }
+}

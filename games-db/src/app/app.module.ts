@@ -18,6 +18,10 @@ import { ContentComponent } from './components/content/content.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { HttpHeadersParamsInterceptor } from './interceptors/http-headers-params.interceptor';
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
+import { HomeComponent } from './pages/home/home.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { DetailCardComponent } from './components/detail-card/detail-card.component';
+import { LogoBarComponent } from './components/logo-bar/logo-bar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,10 @@ import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
     SearchBarComponent,
     ContentComponent,
     GameCardComponent,
+    HomeComponent,
+    DetailsComponent,
+    DetailCardComponent,
+    LogoBarComponent,
   ],
   imports: [
     BrowserModule,

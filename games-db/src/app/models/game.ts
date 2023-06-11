@@ -1,9 +1,9 @@
 export interface Game {
   id: string;
   title: string;
-  thumbnail_url: string;
+  thumbnail: string;
   short_description: string;
-  game_ur: string;
+  game_url: string;
   genre: string;
   platform: string;
   publisher: string;

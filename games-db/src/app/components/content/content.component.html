@@ -1,18 +1,24 @@
-<div class="filters">
-  <mat-form-field>
-    <mat-label>Sort</mat-label>
-    <mat-select panelClass="sort-select" [(ngModel)]="sort">
-      <mat-option value="name">Name</mat-option>
-      <mat-option value="-released">Released</mat-option>
-      <mat-option value="-added">Added</mat-option>
-      <mat-option value="-created">Created</mat-option>
-      <mat-option value="-updated">Updated</mat-option>
-      <mat-option value="-rating">Rating</mat-option>
-      <mat-option value="metacritic">Metacritic</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+<div class="content">
+  <div class="filters">
+    <mat-form-field>
+      <mat-label>Sort</mat-label>
+      <mat-select
+        panelClass="sort-select"
+        [(ngModel)]="sortBy"
+        (selectionChange)="searchGames(sortBy)"
+      >
+        <mat-option
+          *ngFor="let sort of sortByOptions | keyvalue"
+          [value]="sort.value"
+          >{{ sort.key }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
 
-<div class="games">
-  <app-game-card></app-game-card>
+  <div class="games">
+    <ng-container *ngFor="let game of games">
+      <app-game-card [game]="game"></app-game-card>
+    </ng-container>
+  </div>
 </div>

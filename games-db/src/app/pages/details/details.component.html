@@ -1,0 +1,72 @@
+<app-logo-bar></app-logo-bar>
+<div class="details">
+  <div class="game-banner">
+    <img
+      class="game-banner-img"
+      src="gameDetails.screenshots[0].image"
+      alt="screenshot"
+    />
+    <div class="game-content">
+      <div class="game-content-header">
+        <h1 class="game-content-header-title">{{ gameDetails.title }}</h1>
+        <div class="game-content-header-cards">
+          <app-detail-card [detail]="detailReleaseDate" />
+          <app-detail-card [detail]="detailGenre" />
+          <app-detail-card [detail]="detailStatus" />
+        </div>
+      </div>
+      <div class="game-content-details">
+        <table>
+          <tr>
+            <td>Short Description</td>
+            <td>
+              {{ gameDetails.short_description }}
+            </td>
+          </tr>
+          <tr>
+            <td>Publisher</td>
+            <td>{{ gameDetails.publisher }}</td>
+          </tr>
+          <tr>
+            <td>Developer</td>
+            <td>{{ gameDetails.developer }}</td>
+          </tr>
+          <tr>
+            <td>Minimum System Requirements</td>
+            <td>
+              <ul>
+                <li>{{ gameDetails.minimum_system_requirements.os }}</li>
+                <li>{{ gameDetails.minimum_system_requirements.processor }}</li>
+                <li>{{ gameDetails.minimum_system_requirements.memory }}</li>
+                <li>
+                  {{ gameDetails.minimum_system_requirements.graphics }}
+                </li>
+                <li>{{ gameDetails.minimum_system_requirements.storage }}</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+        <div class="game-content-details-gauge">
+          <mwl-gauge
+            class="two"
+            [max]="100"
+            [dialStartAngle]="180"
+            [dialEndAngle]="0"
+            [value]="gameRating"
+            [animated]="true"
+            [color]="getColor"
+            [animationDuration]="2"
+          >
+          </mwl-gauge>
+          <a class="game-content-details-gauge-label" target="_blank" href=""
+            >Metacritic</a
+          >
+        </div>
+      </div>
+      <pre class="game-content-description">
+          {{ gameDetails.description }}
+        </pre
+      >
+    </div>
+  </div>
+</div>

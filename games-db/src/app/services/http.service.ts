@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { SortBy } from '../enums/sort-by';
 import { Observable } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
-import { APIResponse } from '../models/apiresponse';
 import { Game } from '../models/game';
 import { Platform } from '../enums/platform';
 import { Tag } from '../enums/tag';
+import { GameDetails } from '../models/game-details';
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +18,8 @@ export class HttpService {
     sortBy: SortBy,
     platform?: Platform,
     tags?: Array<Tag>
-  ): Observable<APIResponse<Game>> {
-    let params = new HttpParams().set('sort-by', sortBy);
+  ): Observable<Array<Game>> {
+    const params = new HttpParams().set('sort-by', sortBy);
 
     if (platform) params.set('platform', platform);
     else if (tags) {
@@ -32,11 +32,19 @@ export class HttpService {
     }
 
     return tags
-      ? this.http.get<APIResponse<Game>>(`${env.BASE_URL}/filter`, {
+      ? this.http.get<Array<Game>>(`${env.BASE_URL}/filter`, {
           params: params,
         })
-      : this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games`, {
+      : this.http.get<Array<Game>>(`${env.BASE_URL}/games`, {
           params: params,
         });
+  }
+
+  getGameById(gameId: string): Observable<GameDetails> {
+    const params = new HttpParams().set('id', gameId);
+
+    return this.http.get<GameDetails>(`${env.BASE_URL}/game`, {
+      params: params,
+    });
   }
 }

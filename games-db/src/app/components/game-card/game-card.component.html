@@ -1,19 +1,12 @@
-<div class="game">
+<div class="game" (click)="openGameDetails(game.id)">
   <div class="game-thumb-container">
-    <img
-      src="https://image.api.playstation.com/vulcan/ap/rnd/202212/0522/Dzry5RAwU9HsJGXZ3PUSYgCa.jpg"
-      alt="thumbnail"
-      class="game-thumbnail"
-    />
+    <img [src]="game.thumbnail" alt="thumbnail" class="game-thumbnail" />
   </div>
   <div class="game-description">
-    <p class="game-name">Diablo 4</p>
-    <p class="game-short-description">AAAAAAAaaaaa aaaaaaaaa aaaaaaaaa aaaaaaa</p>
+    <p class="game-name">{{ game?.title! }}</p>
+    <p class="game-short-description">{{ game?.short_description! }}</p>
     <div class="game-platforms">
-      <img
-        src="https://seeklogo.com/images/P/playstation-logo-B8010082E9-seeklogo.com.png"
-        alt="slug"
-      />
+      <img [src]="platform" alt="slug" />
     </div>
   </div>
 </div>

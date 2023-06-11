@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContentComponent } from './components/content/content.component';
+import { HomeComponent } from './pages/home/home.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ContentComponent,
+    component: HomeComponent,
   },
   {
     path: 'search/:game-search',
-    component: ContentComponent,
+    component: HomeComponent,
+  },
+  {
+    path: 'details/:gameId',
+    component: DetailsComponent,
   },
 ];
 

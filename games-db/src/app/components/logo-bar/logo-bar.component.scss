@@ -1,0 +1,49 @@
+.back {
+
+    // & para concatenar nome de classes dentro da classe mãe
+    &-container {
+        width: 100%;
+        height: 90px;
+        background-color: #0f0f0f;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 4;
+    }
+
+    &-button {
+        width: 100px;
+        height: 40px;
+        font-size: 16px;
+        font-weight: 400;
+        border: none;
+        outline: none;
+        background-color: black;
+        color: white;
+        padding: 10px;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        transition-duration: 0.3s;
+
+        &:hover {
+            color: black;
+            background-color: darkgray;
+        }
+    }
+}
+
+.logo {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: black;
+    font-size: 18px;
+    margin-right: 10px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+}
